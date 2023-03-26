@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Remove browser borders */
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.basic-input-label {
+    @apply block text-gray-800 font-bold mb-2
+}
+
+.basic-input {
+    @apply shadow appearance-none border-2 rounded-lg border-black py-2 px-3 text-black w-full
+}
+
+.basic-input:focus {
+    @apply border-gray-700 bg-gray-100
+}
+
+.basic-button {
+    @apply shadow-lg appearance-none border-0 rounded-lg bg-opacity-80 text-black font-bold p-2
+}
+
+.basic-button:hover {
+    @apply bg-opacity-100
+}

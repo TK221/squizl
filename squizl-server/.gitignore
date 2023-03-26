@@ -1,0 +1,5 @@
+/node_modules
+dev.db*
+.env
+src/dist/*/*
+docker-compose-dev.yml

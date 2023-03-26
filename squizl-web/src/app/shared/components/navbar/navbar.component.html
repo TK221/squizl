@@ -1,0 +1,110 @@
+<div class="md:hidden flex flex-row w-full p-2 justify-center space-x-10">
+    <div>
+        <button
+            class="p-2 border-0 rounded-full bg-gray-200"
+            (click)="route('hub')"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+            </svg>
+        </button>
+    </div>
+    <div>
+        <button
+            class="p-2 border-0 rounded-full bg-gray-200"
+            (click)="route('')"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+            >
+                <path
+                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                />
+            </svg>
+        </button>
+    </div>
+    <div>
+        <button
+            class="p-2 border-0 rounded-full bg-gray-200"
+            (click)="route('/profile')"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+            </svg>
+        </button>
+    </div>
+    <div>
+        <button
+            class="p-2 border-0 rounded-full bg-gray-200"
+            (click)="route('/game/browser')"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                />
+            </svg>
+        </button>
+    </div>
+</div>
+<div class="hidden md:flex flex-row w-full h-full p-1 space-x-5 px-4">
+    <div class="flex-shrink-0 mr-2">
+        <div class="p-2 text-xl font-bold">squizl.</div>
+    </div>
+    <div class="flex-shrink-0">
+        <button class="p-2" (click)="route('')"><u>Home</u></button>
+    </div>
+    <div class="flex-shrink-0">
+        <button class="p-2" (click)="route('game/browser')">
+            <u>Browser</u>
+        </button>
+    </div>
+    <div class="flex-shrink-0">
+        <button class="p-2" (click)="route('hub')"><u>Hub</u></button>
+    </div>
+    <div class="flex-grow"></div>
+    <div class="flex-shrink-0">
+        <div *ngIf="user !== null">
+            <button class="p-2" (click)="route('profile')">
+                <u>Profile</u>
+            </button>
+            <button class="p-2" (click)="logout()"><u>Logout</u></button>
+        </div>
+        <button *ngIf="user === null" class="p-2" (click)="route('login')">
+            <u>Login</u>
+        </button>
+    </div>
+</div>

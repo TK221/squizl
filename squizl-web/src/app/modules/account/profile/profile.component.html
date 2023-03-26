@@ -1,0 +1,43 @@
+<div class="container h-full mx-auto flex flex-col md:w-2/3 lg:w-1/2">
+    <div class="border-0 rounded-b-3xl bg-white shadow-xl">
+        <h1 class="text-center text-3xl font-bold my-10">Profile</h1>
+    </div>
+    <div class="h-4"></div>
+    <div class="bg-white border-0 rounded-3xl flex flex-col space-y-4 p-4">
+        <div class="text-center">
+            <h1 class="font-bold text-xl">Information's</h1>
+        </div>
+        <div
+            class="
+                bg-gray-200
+                border-0
+                rounded-lg
+                p-3
+                md:grid md:grid-cols-2 md:gap-x-8
+            "
+        >
+            <div>
+                <label class="basic-input-label" for="display-name"
+                    >Login name</label
+                >
+                <input
+                    class="basic-input"
+                    type="text"
+                    id="display-name"
+                    disabled
+                    [(ngModel)]="loginName"
+                />
+            </div>
+            <div>
+                <label class="basic-input-label" for="username">Username</label>
+                <input
+                    class="basic-input"
+                    type="text"
+                    id="username"
+                    disabled
+                    [(ngModel)]="username"
+                />
+            </div>
+        </div>
+    </div>
+</div>

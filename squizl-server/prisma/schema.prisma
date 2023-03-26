@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Question {
+  id                   Int                    @id @default(autoincrement())
+  question             String
+  correctAnswer        Int
+  answers              Answer[]
+  questionOnCollection QuestionOnCollection[]
+}
+
+model Collection {
+  id                   Int                    @id @default(autoincrement())
+  name                 String
+  account              Account                @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId              Int
+  questionOnCollection QuestionOnCollection[]
+}
+
+model QuestionOnCollection {
+  question     Question   @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  collectionId Int
+  questionId   Int
+
+  @@id([collectionId, questionId])
+}
+
+model Answer {
+  id         Int      @id @default(autoincrement())
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  questionId Int
+  answer     String
+}
+
+model Account {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  password    String
+  user        User[]
+  collections Collection[]
+}
+
+model User {
+  account   Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId Int     @id
+  username  String
+}

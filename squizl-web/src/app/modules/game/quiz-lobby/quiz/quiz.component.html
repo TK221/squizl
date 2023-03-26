@@ -1,0 +1,48 @@
+<div class="p-2 text-center">
+    <div
+        name="question"
+        class="
+            border-0
+            rounded-xl
+            p-3
+            m-4
+            bg-auto bg-yellow-100
+            shadow-md
+            h-24
+            text-al
+        "
+    >
+        {{ question.question }}
+    </div>
+    <div name="answers" class="mx-4">
+        <div
+            name="answer"
+            class="
+                bg-gray-100
+                border-0 border-black border-opacity-40
+                rounded-xl
+                p-1
+                mt-3
+                shadow-md
+                h-12
+                overflow-auto
+            "
+            [ngStyle]="{
+                'background-color':
+                    correctAnswer !== i
+                        ? 'rgba(243, 244, 246, var(--tw-bg-opacity)'
+                        : 'rgba(209, 250, 229, var(--tw-bg-opacity))',
+                'border-width': selected !== i ? '0px' : '2px'
+            }"
+            *ngFor="let a of question.answers; index as i"
+            (click)="answer(i)"
+        >
+            {{ a }}
+        </div>
+    </div>
+    <div *ngIf="gameState === 2" class="w-full mt-4">
+        <button class="basic-button bg-yellow-200 p-2" (click)="nextQuestion()">
+            Next Question
+        </button>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+<div class="container mx-auto md:w-2/3 xl:w-1/2">
+    <div class="border-0 rounded-b-3xl bg-white shadow-xl h-full md:h-28 pt-2">
+        <div class="flex flex-col space-y-3 w-2/3 mx-auto">
+            <div>
+                <h1
+                    class="
+                        text-center
+                        font-bold
+                        text-3xl
+                        pb-2
+                        border-b-2 border-gray-500 border-opacity-80
+                    "
+                >
+                    Questions
+                </h1>
+            </div>
+            <div
+                class="
+                    flex flex-col
+                    space-y-2
+                    pb-3
+                    md:flex-row md:space-x-2 md:space-y-0
+                "
+            >
+                <div class="flex-shrink-0">
+                    <select
+                        name="showType"
+                        id="collection-type-selector"
+                        [(ngModel)]="showType"
+                        class="
+                            bg-gray-200
+                            border-0
+                            rounded
+                            p-1
+                            w-full
+                            md:w-auto
+                        "
+                    >
+                        <option [ngValue]="0">Your collections</option>
+                    </select>
+                </div>
+                <div class="flex-grow"></div>
+                <button
+                    class="
+                        flex-shrink-0
+                        bg-green-300
+                        border-0
+                        rounded-lg
+                        hover:bg-green-400
+                        shadow
+                        text-md
+                        p-1
+                        px-2
+                    "
+                    (click)="navigate('hub/collection/add')"
+                >
+                    Add collection
+                </button>
+            </div>
+        </div>
+    </div>
+    <div
+        class="
+            flex-shrink-0 flex-col
+            justify-evenly
+            space-y-2
+            p-4
+            mt-4
+            md:bg-white md:rounded-lg md:shadow-lg md:p-10
+        "
+    >
+        <div class="h-30 overflow-auto">
+            <div class="space-y-4">
+                <div
+                    *ngIf="collections.length === 0"
+                    class="
+                        text-center text-xl
+                        font
+                        bold
+                        bg-gray-200
+                        border-0
+                        rounded-lg
+                        p-2
+                        w-2/3
+                        mx-auto
+                    "
+                >
+                    No collections
+                </div>
+                <div
+                    *ngFor="let collection of collections"
+                    class="
+                        flex flex-col
+                        space-y-2
+                        border-2 border-black border-opacity-70
+                        p-3
+                        px-6
+                        rounded-xl
+                        bg-gray-200
+                        shadow-md
+                    "
+                >
+                    <a>{{ collection.name }}</a>
+                    <button
+                        class="
+                            mt-2
+                            w-min
+                            shadow
+                            appearance-none
+                            border-0
+                            rounded-lg
+                            bg-red-400
+                            hover:bg-red-500
+                            text-sm text-black
+                            font-bold
+                            p-2
+                        "
+                        (click)="deleteCollection(collection.id)"
+                    >
+                        Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h-6 lg:h-16 2xl:h-36"></div>
+</div>
